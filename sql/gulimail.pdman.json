@@ -1,0 +1,5913 @@
+{
+  "modules": [
+    {
+      "name": "gulimail_oms",
+      "chnname": "订单服务",
+      "entities": [
+        {
+          "title": "OMS_ORDER",
+          "chnname": "订单",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_ID",
+              "type": "BIGINT_19",
+              "chnname": "member_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_SN",
+              "type": "CHAR_32",
+              "chnname": "订单号",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_ID",
+              "type": "BIGINT_19",
+              "chnname": "使用的优惠券",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "create_time",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_USERNAME",
+              "type": "VARCHAR_200",
+              "chnname": "用户名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "TOTAL_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "订单总额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PAY_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "应付总额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "FREIGHT_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "运费金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PROMOTION_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "促销优化金额（促销价、满减、阶梯价）",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "INTEGRATION_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "积分抵扣金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "优惠券抵扣金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DISCOUNT_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "后台调整订单使用的折扣金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PAY_TYPE",
+              "type": "TINYINT_3",
+              "chnname": "支付方式【1->支付宝；2->微信；3->银联； 4->货到付款；】",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SOURCE_TYPE",
+              "type": "TINYINT_3",
+              "chnname": "订单来源[0->PC订单；1->app订单]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STATUS",
+              "type": "TINYINT_3",
+              "chnname": "订单状态【0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单】",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DELIVERY_COMPANY",
+              "type": "VARCHAR_64",
+              "chnname": "物流公司(配送方式)",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DELIVERY_SN",
+              "type": "VARCHAR_64",
+              "chnname": "物流单号",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "AUTO_CONFIRM_DAY",
+              "type": "INT_10",
+              "chnname": "自动确认时间（天）",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "INTEGRATION",
+              "type": "INT_10",
+              "chnname": "可以获得的积分",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "GROWTH",
+              "type": "INT_10",
+              "chnname": "可以获得的成长值",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "BILL_TYPE",
+              "type": "TINYINT_3",
+              "chnname": "发票类型[0->不开发票；1->电子发票；2->纸质发票]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "BILL_HEADER",
+              "type": "VARCHAR_255",
+              "chnname": "发票抬头",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "BILL_CONTENT",
+              "type": "VARCHAR_255",
+              "chnname": "发票内容",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "BILL_RECEIVER_PHONE",
+              "type": "VARCHAR_32",
+              "chnname": "收票人电话",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "BILL_RECEIVER_EMAIL",
+              "type": "VARCHAR_64",
+              "chnname": "收票人邮箱",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVER_NAME",
+              "type": "VARCHAR_100",
+              "chnname": "收货人姓名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVER_PHONE",
+              "type": "VARCHAR_32",
+              "chnname": "收货人电话",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVER_POST_CODE",
+              "type": "VARCHAR_32",
+              "chnname": "收货人邮编",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVER_PROVINCE",
+              "type": "VARCHAR_32",
+              "chnname": "省份/直辖市",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVER_CITY",
+              "type": "VARCHAR_32",
+              "chnname": "城市",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVER_REGION",
+              "type": "VARCHAR_32",
+              "chnname": "区",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVER_DETAIL_ADDRESS",
+              "type": "VARCHAR_200",
+              "chnname": "详细地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NOTE",
+              "type": "VARCHAR_500",
+              "chnname": "订单备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CONFIRM_STATUS",
+              "type": "TINYINT_3",
+              "chnname": "确认收货状态[0->未确认；1->已确认]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DELETE_STATUS",
+              "type": "TINYINT_3",
+              "chnname": "删除状态【0->未删除；1->已删除】",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "USE_INTEGRATION",
+              "type": "INT_10",
+              "chnname": "下单时使用的积分",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PAYMENT_TIME",
+              "type": "DATETIME",
+              "chnname": "支付时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DELIVERY_TIME",
+              "type": "DATETIME",
+              "chnname": "发货时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVE_TIME",
+              "type": "DATETIME",
+              "chnname": "确认收货时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COMMENT_TIME",
+              "type": "DATETIME",
+              "chnname": "评价时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MODIFY_TIME",
+              "type": "DATETIME",
+              "chnname": "修改时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "OMS_ORDER_ITEM",
+          "chnname": "订单项信息",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_ID",
+              "type": "BIGINT_19",
+              "chnname": "order_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_SN",
+              "type": "CHAR_32",
+              "chnname": "order_sn",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_ID",
+              "type": "BIGINT_19",
+              "chnname": "spu_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "spu_name",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_PIC",
+              "type": "VARCHAR_500",
+              "chnname": "spu_pic",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_BRAND",
+              "type": "VARCHAR_200",
+              "chnname": "品牌",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CATEGORY_ID",
+              "type": "BIGINT_19",
+              "chnname": "商品分类id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "商品sku编号",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "商品sku名字",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_PIC",
+              "type": "VARCHAR_500",
+              "chnname": "商品sku图片",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_PRICE",
+              "type": "DECIMAL_18_4",
+              "chnname": "商品sku价格",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_QUANTITY",
+              "type": "INT_10",
+              "chnname": "商品购买的数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ATTRS_VALS",
+              "type": "VARCHAR_500",
+              "chnname": "商品销售属性组合（JSON）",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PROMOTION_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "商品促销分解金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "优惠券优惠分解金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "INTEGRATION_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "积分优惠分解金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REAL_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "该商品经过优惠后的分解金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "GIFT_INTEGRATION",
+              "type": "INT_10",
+              "chnname": "赠送积分",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "GIFT_GROWTH",
+              "type": "INT_10",
+              "chnname": "赠送成长值",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "OMS_ORDER_OPERATE_HISTORY",
+          "chnname": "订单操作历史记录",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_ID",
+              "type": "BIGINT_19",
+              "chnname": "订单id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "OPERATE_MAN",
+              "type": "VARCHAR_100",
+              "chnname": "操作人[用户；系统；后台管理员]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "操作时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_STATUS",
+              "type": "TINYINT_3",
+              "chnname": "订单状态【0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单】",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NOTE",
+              "type": "VARCHAR_500",
+              "chnname": "备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "OMS_ORDER_RETURN_APPLY",
+          "chnname": "订单退货申请",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_ID",
+              "type": "BIGINT_19",
+              "chnname": "order_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "退货商品id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_SN",
+              "type": "CHAR_32",
+              "chnname": "订单编号",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "申请时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_USERNAME",
+              "type": "VARCHAR_64",
+              "chnname": "会员用户名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RETURN_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "退款金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RETURN_NAME",
+              "type": "VARCHAR_100",
+              "chnname": "退货人姓名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RETURN_PHONE",
+              "type": "VARCHAR_20",
+              "chnname": "退货人电话",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STATUS",
+              "type": "BIT_1",
+              "chnname": "申请状态[0->待处理；1->退货中；2->已完成；3->已拒绝]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "HANDLE_TIME",
+              "type": "DATETIME",
+              "chnname": "处理时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_IMG",
+              "type": "VARCHAR_500",
+              "chnname": "商品图片",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_NAME",
+              "type": "VARCHAR_200",
+              "chnname": "商品名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_BRAND",
+              "type": "VARCHAR_200",
+              "chnname": "商品品牌",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ATTRS_VALS",
+              "type": "VARCHAR_500",
+              "chnname": "商品销售属性(JSON)",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_COUNT",
+              "type": "INT_10",
+              "chnname": "退货数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_PRICE",
+              "type": "DECIMAL_18_4",
+              "chnname": "商品单价",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_REAL_PRICE",
+              "type": "DECIMAL_18_4",
+              "chnname": "商品实际支付单价",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REASON",
+              "type": "VARCHAR_200",
+              "chnname": "原因",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DESCRIPTION述",
+              "type": "VARCHAR_500",
+              "chnname": "描述",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DESC_PICS",
+              "type": "VARCHAR_2000",
+              "chnname": "凭证图片，以逗号隔开",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "HANDLE_NOTE",
+              "type": "VARCHAR_500",
+              "chnname": "处理备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "HANDLE_MAN",
+              "type": "VARCHAR_200",
+              "chnname": "处理人员",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVE_MAN",
+              "type": "VARCHAR_100",
+              "chnname": "收货人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVE_TIME",
+              "type": "DATETIME",
+              "chnname": "收货时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVE_NOTE",
+              "type": "VARCHAR_500",
+              "chnname": "收货备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVE_PHONE",
+              "type": "VARCHAR_20",
+              "chnname": "收货电话",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COMPANY_ADDRESS",
+              "type": "VARCHAR_500",
+              "chnname": "公司收货地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "OMS_ORDER_RETURN_REASON",
+          "chnname": "退货原因",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "NAME",
+              "type": "VARCHAR_200",
+              "chnname": "退货原因名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SORT",
+              "type": "INT_10",
+              "chnname": "排序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STATUS",
+              "type": "BIT_1",
+              "chnname": "启用状态",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "create_time",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "OMS_ORDER_SETTING",
+          "chnname": "订单配置信息",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "FLASH_ORDER_OVERTIME",
+              "type": "INT_10",
+              "chnname": "秒杀订单超时关闭时间(分)",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NORMAL_ORDER_OVERTIME",
+              "type": "INT_10",
+              "chnname": "正常订单超时时间(分)",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CONFIRM_OVERTIME",
+              "type": "INT_10",
+              "chnname": "发货后自动确认收货时间（天）",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "FINISH_OVERTIME",
+              "type": "INT_10",
+              "chnname": "自动完成交易时间，不能申请退货（天）",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COMMENT_OVERTIME",
+              "type": "INT_10",
+              "chnname": "订单完成后自动好评时间（天）",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_LEVEL",
+              "type": "TINYINT_3",
+              "chnname": "会员等级【0-不限会员等级，全部通用；其他-对应的其他会员等级】",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "OMS_PAYMENT_INFO",
+          "chnname": "支付信息表",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_SN",
+              "type": "CHAR_32",
+              "chnname": "订单号（对外业务号）",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_ID",
+              "type": "BIGINT_19",
+              "chnname": "订单id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ALIPAY_TRADE_NO",
+              "type": "VARCHAR_50",
+              "chnname": "支付宝交易流水号",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "TOTAL_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "支付总金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SUBJECT",
+              "type": "VARCHAR_200",
+              "chnname": "交易内容",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PAYMENT_STATUS",
+              "type": "VARCHAR_20",
+              "chnname": "支付状态",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CONFIRM_TIME",
+              "type": "DATETIME",
+              "chnname": "确认时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CALLBACK_CONTENT",
+              "type": "VARCHAR_4000",
+              "chnname": "回调内容",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CALLBACK_TIME",
+              "type": "DATETIME",
+              "chnname": "回调时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "OMS_REFUND_INFO",
+          "chnname": "退款信息",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_RETURN_ID",
+              "type": "BIGINT_19",
+              "chnname": "退款的订单",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REFUND",
+              "type": "DECIMAL_18_4",
+              "chnname": "退款金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REFUND_SN",
+              "type": "VARCHAR_64",
+              "chnname": "退款交易流水号",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REFUND_STATUS",
+              "type": "BIT_1",
+              "chnname": "退款状态",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REFUND_CHANNEL",
+              "type": "TINYINT_3",
+              "chnname": "退款渠道[1-支付宝，2-微信，3-银联，4-汇款]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REFUND_CONTENT",
+              "type": "VARCHAR_5000",
+              "chnname": "",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gulimail_pms",
+      "chnname": "商品服务",
+      "entities": [
+        {
+          "title": "PMS_ATTR",
+          "chnname": "商品属性",
+          "fields": [
+            {
+              "name": "ATTR_ID",
+              "type": "BIGINT_19",
+              "chnname": "属性id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_NAME",
+              "type": "CHAR_30",
+              "chnname": "属性名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SEARCH_TYPE",
+              "type": "TINYINT_3",
+              "chnname": "是否需要检索[0-不需要，1-需要]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ICON",
+              "type": "VARCHAR_255",
+              "chnname": "属性图标",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "VALUE_SELECT",
+              "type": "CHAR_255",
+              "chnname": "可选值列表[用逗号分隔]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_TYPE",
+              "type": "TINYINT_3",
+              "chnname": "属性类型[0-销售属性，1-基本属性，2-既是销售属性又是基本属性]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ENABLE",
+              "type": "BIGINT_19",
+              "chnname": "启用状态[0 - 禁用，1 - 启用]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CATELOG_ID",
+              "type": "BIGINT_19",
+              "chnname": "所属分类",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SHOW_DESC",
+              "type": "TINYINT_3",
+              "chnname": "快速展示【是否展示在介绍上；0-否 1-是】，在sku中仍然可以调整",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_ATTR_ATTRGROUP_RELATION",
+          "chnname": "属性&属性分组关联",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_ID",
+              "type": "BIGINT_19",
+              "chnname": "属性id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_GROUP_ID",
+              "type": "BIGINT_19",
+              "chnname": "属性分组id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_SORT",
+              "type": "INT_10",
+              "chnname": "属性组内排序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_ATTR_GROUP",
+          "chnname": "属性分组",
+          "fields": [
+            {
+              "name": "ATTR_GROUP_ID",
+              "type": "BIGINT_19",
+              "chnname": "分组id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_GROUP_NAME",
+              "type": "CHAR_20",
+              "chnname": "组名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SORT",
+              "type": "INT_10",
+              "chnname": "排序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DESCRIPT",
+              "type": "VARCHAR_255",
+              "chnname": "描述",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ICON",
+              "type": "VARCHAR_255",
+              "chnname": "组图标",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CATELOG_ID",
+              "type": "BIGINT_19",
+              "chnname": "所属分类id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_BRAND",
+          "chnname": "品牌",
+          "fields": [
+            {
+              "name": "BRAND_ID",
+              "type": "BIGINT_19",
+              "chnname": "品牌id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "NAME",
+              "type": "CHAR_50",
+              "chnname": "品牌名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "LOGO",
+              "type": "VARCHAR_2000",
+              "chnname": "品牌logo地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DESCRIPT",
+              "type": "LONGTEXT",
+              "chnname": "介绍",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SHOW_STATUS",
+              "type": "TINYINT_3",
+              "chnname": "显示状态[0-不显示；1-显示]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "FIRST_LETTER",
+              "type": "CHAR_1",
+              "chnname": "检索首字母",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SORT",
+              "type": "INT_10",
+              "chnname": "排序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_CATEGORY",
+          "chnname": "商品三级分类",
+          "fields": [
+            {
+              "name": "CAT_ID",
+              "type": "BIGINT_19",
+              "chnname": "分类id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "NAME",
+              "type": "CHAR_50",
+              "chnname": "分类名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PARENT_CID",
+              "type": "BIGINT_19",
+              "chnname": "父分类id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CAT_LEVEL",
+              "type": "INT_10",
+              "chnname": "层级",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SHOW_STATUS",
+              "type": "TINYINT_3",
+              "chnname": "是否显示[0-不显示，1显示]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SORT",
+              "type": "INT_10",
+              "chnname": "排序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ICON",
+              "type": "CHAR_255",
+              "chnname": "图标地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PRODUCT_UNIT",
+              "type": "CHAR_50",
+              "chnname": "计量单位",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PRODUCT_COUNT",
+              "type": "INT_10",
+              "chnname": "商品数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_CATEGORY_BRAND_RELATION",
+          "chnname": "品牌分类关联",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "BRAND_ID",
+              "type": "BIGINT_19",
+              "chnname": "品牌id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CATELOG_ID",
+              "type": "BIGINT_19",
+              "chnname": "分类id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "BRAND_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CATELOG_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_COMMENT_REPLAY",
+          "chnname": "商品评价回复关系",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "COMMENT_ID",
+              "type": "BIGINT_19",
+              "chnname": "评论id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REPLY_ID",
+              "type": "BIGINT_19",
+              "chnname": "回复id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_PRODUCT_ATTR_VALUE",
+          "chnname": "spu属性值",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_ID",
+              "type": "BIGINT_19",
+              "chnname": "商品id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_ID",
+              "type": "BIGINT_19",
+              "chnname": "属性id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_NAME",
+              "type": "VARCHAR_200",
+              "chnname": "属性名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_VALUE",
+              "type": "VARCHAR_200",
+              "chnname": "属性值",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_SORT",
+              "type": "INT_10",
+              "chnname": "顺序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "QUICK_SHOW",
+              "type": "TINYINT_3",
+              "chnname": "快速展示【是否展示在介绍上；0-否 1-是】",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_SKU_IMAGES",
+          "chnname": "sku图片",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "sku_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "IMG_URL",
+              "type": "VARCHAR_255",
+              "chnname": "图片地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "IMG_SORT",
+              "type": "INT_10",
+              "chnname": "排序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DEFAULT_IMG",
+              "type": "INT_10",
+              "chnname": "默认图[0 - 不是默认图，1 - 是默认图]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_SKU_INFO",
+          "chnname": "sku信息",
+          "fields": [
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "skuId",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_ID",
+              "type": "BIGINT_19",
+              "chnname": "spuId",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "sku名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_DESC",
+              "type": "VARCHAR_2000",
+              "chnname": "sku介绍描述",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CATALOG_ID",
+              "type": "BIGINT_19",
+              "chnname": "所属分类id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "BRAND_ID",
+              "type": "BIGINT_19",
+              "chnname": "品牌id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_DEFAULT_IMG",
+              "type": "VARCHAR_255",
+              "chnname": "默认图片",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_TITLE",
+              "type": "VARCHAR_255",
+              "chnname": "标题",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_SUBTITLE",
+              "type": "VARCHAR_2000",
+              "chnname": "副标题",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PRICE",
+              "type": "DECIMAL_18_4",
+              "chnname": "价格",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SALE_COUNT",
+              "type": "BIGINT_19",
+              "chnname": "销量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_SKU_SALE_ATTR_VALUE",
+          "chnname": "sku销售属性&值",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "sku_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_ID",
+              "type": "BIGINT_19",
+              "chnname": "attr_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_NAME",
+              "type": "VARCHAR_200",
+              "chnname": "销售属性名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_VALUE",
+              "type": "VARCHAR_200",
+              "chnname": "销售属性值",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTR_SORT",
+              "type": "INT_10",
+              "chnname": "顺序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_SPU_COMMENT",
+          "chnname": "商品评价",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "sku_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_ID",
+              "type": "BIGINT_19",
+              "chnname": "spu_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "商品名字",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_NICK_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "会员昵称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STAR",
+              "type": "BIT_1",
+              "chnname": "星级",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_IP",
+              "type": "VARCHAR_64",
+              "chnname": "会员ip",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SHOW_STATUS",
+              "type": "BIT_1",
+              "chnname": "显示状态[0-不显示，1-显示]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_ATTRIBUTES",
+              "type": "VARCHAR_255",
+              "chnname": "购买时属性组合",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "LIKES_COUNT",
+              "type": "INT_10",
+              "chnname": "点赞数",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REPLY_COUNT",
+              "type": "INT_10",
+              "chnname": "回复数",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RESOURCES",
+              "type": "VARCHAR_1000",
+              "chnname": "评论图片/视频[json数据；[{type:文件类型,url:资源路径}]]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CONTENT",
+              "type": "TEXT",
+              "chnname": "内容",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_ICON",
+              "type": "VARCHAR_255",
+              "chnname": "用户头像",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COMMENT_TYPE",
+              "type": "TINYINT_3",
+              "chnname": "评论类型[0 - 对商品的直接评论，1 - 对评论的回复]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_SPU_IMAGES",
+          "chnname": "spu图片",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_ID",
+              "type": "BIGINT_19",
+              "chnname": "spu_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "IMG_NAME",
+              "type": "VARCHAR_200",
+              "chnname": "图片名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "IMG_URL",
+              "type": "VARCHAR_255",
+              "chnname": "图片地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "IMG_SORT",
+              "type": "INT_10",
+              "chnname": "顺序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DEFAULT_IMG",
+              "type": "TINYINT_3",
+              "chnname": "是否默认图",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_SPU_INFO",
+          "chnname": "spu信息",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "商品id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_NAME",
+              "type": "VARCHAR_200",
+              "chnname": "商品名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_DESCRIPTION",
+              "type": "VARCHAR_1000",
+              "chnname": "商品描述",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CATALOG_ID",
+              "type": "BIGINT_19",
+              "chnname": "所属分类id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "BRAND_ID",
+              "type": "BIGINT_19",
+              "chnname": "品牌id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "WEIGHT",
+              "type": "DECIMAL_18_4",
+              "chnname": "",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PUBLISH_STATUS",
+              "type": "TINYINT_3",
+              "chnname": "上架状态[0 - 下架，1 - 上架]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "UPDATE_TIME",
+              "type": "DATETIME",
+              "chnname": "",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "PMS_SPU_INFO_DESC",
+          "chnname": "spu信息介绍",
+          "fields": [
+            {
+              "name": "SPU_ID",
+              "type": "BIGINT_19",
+              "chnname": "商品id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DECRIPT",
+              "type": "LONGTEXT",
+              "chnname": "商品介绍",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gulimail_sms",
+      "chnname": "优惠券服务",
+      "entities": [
+        {
+          "title": "SMS_COUPON",
+          "chnname": "优惠券信息",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_TYPE",
+              "type": "BIT_1",
+              "chnname": "优惠卷类型[0->全场赠券；1->会员赠券；2->购物赠券；3->注册赠券]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_IMG",
+              "type": "VARCHAR_2000",
+              "chnname": "优惠券图片",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_NAME",
+              "type": "VARCHAR_100",
+              "chnname": "优惠卷名字",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NUM",
+              "type": "INT_10",
+              "chnname": "数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PER_LIMIT",
+              "type": "INT_10",
+              "chnname": "每人限领张数",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MIN_POINT",
+              "type": "DECIMAL_18_4",
+              "chnname": "使用门槛",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "START_TIME",
+              "type": "DATETIME",
+              "chnname": "开始时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "END_TIME",
+              "type": "DATETIME",
+              "chnname": "结束时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "USE_TYPE",
+              "type": "BIT_1",
+              "chnname": "使用类型[0->全场通用；1->指定分类；2->指定商品]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NOTE",
+              "type": "VARCHAR_200",
+              "chnname": "备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PUBLISH_COUNT",
+              "type": "INT_10",
+              "chnname": "发行数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "USE_COUNT",
+              "type": "INT_10",
+              "chnname": "已使用数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RECEIVE_COUNT",
+              "type": "INT_10",
+              "chnname": "领取数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ENABLE_START_TIME",
+              "type": "DATETIME",
+              "chnname": "可以领取的开始日期",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ENABLE_END_TIME",
+              "type": "DATETIME",
+              "chnname": "可以领取的结束日期",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CODE",
+              "type": "VARCHAR_64",
+              "chnname": "优惠码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_LEVEL",
+              "type": "BIT_1",
+              "chnname": "可以领取的会员等级[0->不限等级，其他-对应等级]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PUBLISH",
+              "type": "BIT_1",
+              "chnname": "发布状态[0-未发布，1-已发布]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_COUPON_HISTORY",
+          "chnname": "优惠券领取历史记录",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_ID",
+              "type": "BIGINT_19",
+              "chnname": "优惠券id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_ID",
+              "type": "BIGINT_19",
+              "chnname": "会员id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_NICK_NAME",
+              "type": "VARCHAR_64",
+              "chnname": "会员名字",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "GET_TYPE",
+              "type": "BIT_1",
+              "chnname": "获取方式[0->后台赠送；1->主动领取]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "USE_TYPE",
+              "type": "BIT_1",
+              "chnname": "使用状态[0->未使用；1->已使用；2->已过期]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "USE_TIME",
+              "type": "DATETIME",
+              "chnname": "使用时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_ID",
+              "type": "BIGINT_19",
+              "chnname": "订单id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_SN",
+              "type": "BIGINT_19",
+              "chnname": "订单号",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_COUPON_SPU_CATEGORY_RELATION",
+          "chnname": "优惠券分类关联",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_ID",
+              "type": "BIGINT_19",
+              "chnname": "优惠券id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CATEGORY_ID",
+              "type": "BIGINT_19",
+              "chnname": "产品分类id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CATEGORY_NAME",
+              "type": "VARCHAR_64",
+              "chnname": "产品分类名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_COUPON_SPU_RELATION",
+          "chnname": "优惠券与产品关联",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_ID",
+              "type": "BIGINT_19",
+              "chnname": "优惠券id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_ID",
+              "type": "BIGINT_19",
+              "chnname": "spu_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "spu_name",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_HOME_ADV",
+          "chnname": "首页轮播广告",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "NAME",
+              "type": "VARCHAR_100",
+              "chnname": "名字",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PIC",
+              "type": "VARCHAR_500",
+              "chnname": "图片地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "START_TIME",
+              "type": "DATETIME",
+              "chnname": "开始时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "END_TIME",
+              "type": "DATETIME",
+              "chnname": "结束时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STATUS",
+              "type": "BIT_1",
+              "chnname": "状态",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CLICK_COUNT",
+              "type": "INT_10",
+              "chnname": "点击数",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "URL",
+              "type": "VARCHAR_500",
+              "chnname": "广告详情连接地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NOTE",
+              "type": "VARCHAR_500",
+              "chnname": "备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SORT",
+              "type": "INT_10",
+              "chnname": "排序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PUBLISHER_ID",
+              "type": "BIGINT_19",
+              "chnname": "发布者",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "AUTH_ID",
+              "type": "BIGINT_19",
+              "chnname": "审核者",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_HOME_SUBJECT",
+          "chnname": "首页专题表【jd首页下面很多专题，每个专题链接新的页面，展示专题商品信息】",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "NAME",
+              "type": "VARCHAR_200",
+              "chnname": "专题名字",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "TITLE",
+              "type": "VARCHAR_255",
+              "chnname": "专题标题",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SUB_TITLE",
+              "type": "VARCHAR_255",
+              "chnname": "专题副标题",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STATUS",
+              "type": "BIT_1",
+              "chnname": "显示状态",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "URL",
+              "type": "VARCHAR_500",
+              "chnname": "详情连接",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SORT",
+              "type": "INT_10",
+              "chnname": "排序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "IMG",
+              "type": "VARCHAR_500",
+              "chnname": "专题图片地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_HOME_SUBJECT_SPU",
+          "chnname": "专题商品",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "NAME",
+              "type": "VARCHAR_200",
+              "chnname": "专题名字",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SUBJECT_ID",
+              "type": "BIGINT_19",
+              "chnname": "专题id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_ID",
+              "type": "BIGINT_19",
+              "chnname": "spu_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SORT",
+              "type": "INT_10",
+              "chnname": "排序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_MEMBER_PRICE",
+          "chnname": "商品会员价格",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "sku_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_LEVEL_ID",
+              "type": "BIGINT_19",
+              "chnname": "会员等级id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_LEVEL_NAME",
+              "type": "VARCHAR_100",
+              "chnname": "会员等级名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_PRICE",
+              "type": "DECIMAL_18_4",
+              "chnname": "会员对应价格",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ADD_OTHER",
+              "type": "BIT_1",
+              "chnname": "可否叠加其他优惠[0-不可叠加优惠，1-可叠加]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_SECKILL_PROMOTION",
+          "chnname": "秒杀活动",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "TITLE",
+              "type": "VARCHAR_255",
+              "chnname": "活动标题",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "START_TIME",
+              "type": "DATETIME",
+              "chnname": "开始日期",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "END_TIME",
+              "type": "DATETIME",
+              "chnname": "结束日期",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STATUS",
+              "type": "TINYINT_3",
+              "chnname": "上下线状态",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "USER_ID",
+              "type": "BIGINT_19",
+              "chnname": "创建人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_SECKILL_SESSION",
+          "chnname": "秒杀活动场次",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "NAME",
+              "type": "VARCHAR_200",
+              "chnname": "场次名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "START_TIME",
+              "type": "DATETIME",
+              "chnname": "每日开始时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "END_TIME",
+              "type": "DATETIME",
+              "chnname": "每日结束时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STATUS",
+              "type": "BIT_1",
+              "chnname": "启用状态",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_SECKILL_SKU_NOTICE",
+          "chnname": "秒杀商品通知订阅",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_ID",
+              "type": "BIGINT_19",
+              "chnname": "member_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "sku_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SESSION_ID",
+              "type": "BIGINT_19",
+              "chnname": "活动场次id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SUBCRIBE_TIME",
+              "type": "DATETIME",
+              "chnname": "订阅时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SEND_TIME",
+              "type": "DATETIME",
+              "chnname": "发送时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NOTICE_TYPE",
+              "type": "BIT_1",
+              "chnname": "通知方式[0-短信，1-邮件]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_SECKILL_SKU_RELATION",
+          "chnname": "秒杀活动商品关联",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "PROMOTION_ID",
+              "type": "BIGINT_19",
+              "chnname": "活动id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PROMOTION_SESSION_ID",
+              "type": "BIGINT_19",
+              "chnname": "活动场次id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "商品id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SECKILL_PRICE",
+              "type": "DECIMAL_10",
+              "chnname": "秒杀价格",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SECKILL_COUNT",
+              "type": "DECIMAL_10",
+              "chnname": "秒杀总量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SECKILL_LIMIT",
+              "type": "DECIMAL_10",
+              "chnname": "每人限购数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SECKILL_SORT",
+              "type": "INT_10",
+              "chnname": "排序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_SKU_FULL_REDUCTION",
+          "chnname": "商品满减信息",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "spu_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "FULL_PRICE",
+              "type": "DECIMAL_18_4",
+              "chnname": "满多少",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REDUCE_PRICE",
+              "type": "DECIMAL_18_4",
+              "chnname": "减多少",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ADD_OTHER",
+              "type": "BIT_1",
+              "chnname": "是否参与其他优惠",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_SKU_LADDER",
+          "chnname": "商品阶梯价格",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "spu_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "FULL_COUNT",
+              "type": "INT_10",
+              "chnname": "满几件",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DISCOUNT",
+              "type": "DECIMAL_4_2",
+              "chnname": "打几折",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PRICE",
+              "type": "DECIMAL_18_4",
+              "chnname": "折后价",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ADD_OTHER",
+              "type": "BIT_1",
+              "chnname": "是否叠加其他优惠[0-不可叠加，1-可叠加]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "SMS_SPU_BOUNDS",
+          "chnname": "商品spu积分设置",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_ID",
+              "type": "BIGINT_19",
+              "chnname": "",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "GROW_BOUNDS",
+              "type": "DECIMAL_18_4",
+              "chnname": "成长积分",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "BUY_BOUNDS",
+              "type": "DECIMAL_18_4",
+              "chnname": "购物积分",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "WORK",
+              "type": "BIT_1",
+              "chnname": "优惠生效情况[1111（四个状态位，从右到左）;0 - 无优惠，成长积分是否赠送;1 - 无优惠，购物积分是否赠送;2 - 有优惠，成长积分是否赠送;3 - 有优惠，购物积分是否赠送【状态位0：不赠送，1：赠送】]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gulimail_ums",
+      "chnname": "会员服务",
+      "entities": [
+        {
+          "title": "UMS_GROWTH_CHANGE_HISTORY",
+          "chnname": "成长值变化历史记录",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_ID",
+              "type": "BIGINT_19",
+              "chnname": "member_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "create_time",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CHANGE_COUNT",
+              "type": "INT_10",
+              "chnname": "改变的值（正负计数）",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NOTE",
+              "type": "VARCHAR_0",
+              "chnname": "备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SOURCE_TYPE",
+              "type": "TINYINT_3",
+              "chnname": "积分来源[0-购物，1-管理员修改]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "UMS_INTEGRATION_CHANGE_HISTORY",
+          "chnname": "积分变化历史记录",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_ID",
+              "type": "BIGINT_19",
+              "chnname": "member_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "create_time",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CHANGE_COUNT",
+              "type": "INT_10",
+              "chnname": "变化的值",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NOTE",
+              "type": "VARCHAR_255",
+              "chnname": "备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SOURCE_TYOE",
+              "type": "TINYINT_3",
+              "chnname": "来源[0->购物；1->管理员修改;2->活动]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "UMS_MEMBER",
+          "chnname": "会员",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "LEVEL_ID",
+              "type": "BIGINT_19",
+              "chnname": "会员等级id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "USERNAME",
+              "type": "CHAR_64",
+              "chnname": "用户名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PASSWORD",
+              "type": "VARCHAR_64",
+              "chnname": "密码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NICKNAME",
+              "type": "VARCHAR_64",
+              "chnname": "昵称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MOBILE",
+              "type": "VARCHAR_20",
+              "chnname": "手机号码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "EMAIL",
+              "type": "VARCHAR_64",
+              "chnname": "邮箱",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "HEADER",
+              "type": "VARCHAR_500",
+              "chnname": "头像",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "GENDER",
+              "type": "TINYINT_3",
+              "chnname": "性别",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "BIRTH",
+              "type": "DATE",
+              "chnname": "生日",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CITY",
+              "type": "VARCHAR_500",
+              "chnname": "所在城市",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "JOB",
+              "type": "VARCHAR_255",
+              "chnname": "职业",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SIGN",
+              "type": "VARCHAR_255",
+              "chnname": "个性签名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SOURCE_TYPE",
+              "type": "TINYINT_3",
+              "chnname": "用户来源",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "INTEGRATION",
+              "type": "INT_10",
+              "chnname": "积分",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "GROWTH",
+              "type": "INT_10",
+              "chnname": "成长值",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STATUS",
+              "type": "TINYINT_3",
+              "chnname": "启用状态",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "注册时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "UMS_MEMBER_COLLECT_SPU",
+          "chnname": "会员收藏的商品",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_ID",
+              "type": "BIGINT_19",
+              "chnname": "会员id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_ID",
+              "type": "BIGINT_19",
+              "chnname": "spu_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_NAME",
+              "type": "VARCHAR_500",
+              "chnname": "spu_name",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SPU_IMG",
+              "type": "VARCHAR_500",
+              "chnname": "spu_img",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "create_time",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "UMS_MEMBER_COLLECT_SUBJECT",
+          "chnname": "会员收藏的专题活动",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SUBJECT_ID",
+              "type": "BIGINT_19",
+              "chnname": "subject_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SUBJECT_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "subject_name",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SUBJECT_IMG",
+              "type": "VARCHAR_500",
+              "chnname": "subject_img",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SUBJECT_URLL",
+              "type": "VARCHAR_500",
+              "chnname": "活动url",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "UMS_MEMBER_LEVEL",
+          "chnname": "会员等级",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "NAME",
+              "type": "VARCHAR_100",
+              "chnname": "等级名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "GROWTH_POINT",
+              "type": "INT_10",
+              "chnname": "等级需要的成长值",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DEFAULT_STATUS",
+              "type": "TINYINT_3",
+              "chnname": "是否为默认等级[0->不是；1->是]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "FREE_FREIGHT_POINT",
+              "type": "DECIMAL_18_4",
+              "chnname": "免运费标准",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COMMENT_GROWTH_POINT",
+              "type": "INT_10",
+              "chnname": "每次评价获取的成长值",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PRIVILEDGE_FREE_FREIGHT",
+              "type": "TINYINT_3",
+              "chnname": "是否有免邮特权",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PRIVILEDGE_MEMBER_PRICE",
+              "type": "TINYINT_3",
+              "chnname": "是否有会员价格特权",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PRIVILEDGE_BIRTHDAY",
+              "type": "TINYINT_3",
+              "chnname": "是否有生日特权",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NOTE",
+              "type": "VARCHAR_255",
+              "chnname": "备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "UMS_MEMBER_LOGIN_LOG",
+          "chnname": "会员登录记录",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_ID",
+              "type": "BIGINT_19",
+              "chnname": "member_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "IP",
+              "type": "VARCHAR_64",
+              "chnname": "ip",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CITY",
+              "type": "VARCHAR_64",
+              "chnname": "city",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "LOGIN_TYPE",
+              "type": "BIT_1",
+              "chnname": "登录类型[1-web，2-app]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "UMS_MEMBER_RECEIVE_ADDRESS",
+          "chnname": "会员收货地址",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_ID",
+              "type": "BIGINT_19",
+              "chnname": "member_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "NAME",
+              "type": "VARCHAR_255",
+              "chnname": "收货人姓名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PHONE",
+              "type": "VARCHAR_64",
+              "chnname": "电话",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "POST_CODE",
+              "type": "VARCHAR_64",
+              "chnname": "邮政编码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PROVINCE",
+              "type": "VARCHAR_100",
+              "chnname": "省份/直辖市",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CITY",
+              "type": "VARCHAR_100",
+              "chnname": "城市",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "REGION",
+              "type": "VARCHAR_100",
+              "chnname": "区",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DETAIL_ADDRESS",
+              "type": "VARCHAR_255",
+              "chnname": "详细地址(街道)",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "AREACODE",
+              "type": "VARCHAR_15",
+              "chnname": "省市区代码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DEFAULT_STATUS",
+              "type": "BIT_1",
+              "chnname": "是否默认",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "UMS_MEMBER_STATISTICS_INFO",
+          "chnname": "会员统计信息",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "MEMBER_ID",
+              "type": "BIGINT_19",
+              "chnname": "会员id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CONSUME_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "累计消费金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "累计优惠金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_COUNT",
+              "type": "INT_10",
+              "chnname": "订单数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COUPON_COUNT",
+              "type": "INT_10",
+              "chnname": "优惠券数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COMMENT_COUNT",
+              "type": "INT_10",
+              "chnname": "评价数",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "RETURN_ORDER_COUNT",
+              "type": "INT_10",
+              "chnname": "退货数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "LOGIN_COUNT",
+              "type": "INT_10",
+              "chnname": "登录次数",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ATTEND_COUNT",
+              "type": "INT_10",
+              "chnname": "关注数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "FANS_COUNT",
+              "type": "INT_10",
+              "chnname": "粉丝数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COLLECT_PRODUCT_COUNT",
+              "type": "INT_10",
+              "chnname": "收藏的商品数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COLLECT_SUBJECT_COUNT",
+              "type": "INT_10",
+              "chnname": "收藏的专题活动数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "COLLECT_COMMENT_COUNT",
+              "type": "INT_10",
+              "chnname": "收藏的评论数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "INVITE_FRIEND_COUNT",
+              "type": "INT_10",
+              "chnname": "邀请的朋友数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gulimail_wms",
+      "chnname": "仓储服务",
+      "entities": [
+        {
+          "title": "WMS_PURCHASE",
+          "chnname": "采购信息",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "采购单id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "ASSIGNEE_ID",
+              "type": "BIGINT_19",
+              "chnname": "采购人id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ASSIGNEE_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "采购人名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PHONE",
+              "type": "CHAR_13",
+              "chnname": "联系方式",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PRIORITY",
+              "type": "INT_10",
+              "chnname": "优先级",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STATUS",
+              "type": "INT_10",
+              "chnname": "状态",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "WARE_ID",
+              "type": "BIGINT_19",
+              "chnname": "仓库id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "AMOUNT",
+              "type": "DECIMAL_18_4",
+              "chnname": "总金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "创建日期",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "UPDATE_TIME",
+              "type": "DATETIME",
+              "chnname": "更新日期",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "WMS_PURCHASE_DETAIL",
+          "chnname": "",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "PURCHASE_ID",
+              "type": "BIGINT_19",
+              "chnname": "采购单id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "采购商品id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_NUM",
+              "type": "INT_10",
+              "chnname": "采购数量",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_PRICE",
+              "type": "DECIMAL_18_4",
+              "chnname": "采购金额",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "WARE_ID",
+              "type": "BIGINT_19",
+              "chnname": "仓库id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STATUS",
+              "type": "INT_10",
+              "chnname": "状态[0新建，1已分配，2正在采购，3已完成，4采购失败]",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "WMS_WARE_INFO",
+          "chnname": "仓库信息",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "NAME",
+              "type": "VARCHAR_255",
+              "chnname": "仓库名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ADDRESS",
+              "type": "VARCHAR_255",
+              "chnname": "仓库地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "AREACODE",
+              "type": "VARCHAR_20",
+              "chnname": "区域编码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "WMS_WARE_ORDER_TASK",
+          "chnname": "库存工作单",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_ID",
+              "type": "BIGINT_19",
+              "chnname": "order_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_SN",
+              "type": "VARCHAR_255",
+              "chnname": "order_sn",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CONSIGNEE",
+              "type": "VARCHAR_100",
+              "chnname": "收货人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CONSIGNEE_TEL",
+              "type": "CHAR_15",
+              "chnname": "收货人电话",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "DELIVERY_ADDRESS",
+              "type": "VARCHAR_500",
+              "chnname": "配送地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_COMMENT",
+              "type": "VARCHAR_200",
+              "chnname": "订单备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "PAYMENT_WAY",
+              "type": "BIT_1",
+              "chnname": "付款方式【 1:在线付款 2:货到付款】",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "TASK_STATUS",
+              "type": "TINYINT_3",
+              "chnname": "任务状态",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ORDER_BODY",
+              "type": "VARCHAR_255",
+              "chnname": "订单描述",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "TRACKING_NO",
+              "type": "CHAR_30",
+              "chnname": "物流单号",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "CREATE_TIME",
+              "type": "DATETIME",
+              "chnname": "create_time",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "WARE_ID",
+              "type": "BIGINT_19",
+              "chnname": "仓库id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "TASK_COMMENT",
+              "type": "VARCHAR_500",
+              "chnname": "工作单备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "WMS_WARE_ORDER_TASK_DETAIL",
+          "chnname": "库存工作单",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "sku_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_NAME",
+              "type": "VARCHAR_255",
+              "chnname": "sku_name",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_NUM",
+              "type": "INT_10",
+              "chnname": "购买个数",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "TASK_ID",
+              "type": "BIGINT_19",
+              "chnname": "工作单id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "WMS_WARE_SKU",
+          "chnname": "商品库存",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "BIGINT_19",
+              "chnname": "id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_ID",
+              "type": "BIGINT_19",
+              "chnname": "sku_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "WARE_ID",
+              "type": "BIGINT_19",
+              "chnname": "仓库id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STOCK",
+              "type": "INT_10",
+              "chnname": "库存数",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "SKU_NAME",
+              "type": "VARCHAR_200",
+              "chnname": "sku_name",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "STOCK_LOCKED",
+              "type": "INT_10",
+              "chnname": "锁定库存",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dataTypeDomains": {
+    "datatype": [
+      {
+        "name": "默认字串",
+        "code": "DefaultString",
+        "apply": {
+          "JAVA": {
+            "type": "String"
+          },
+          "MYSQL": {
+            "type": "VARCHAR(32)"
+          },
+          "ORACLE": {
+            "type": "NVARCHAR2(32)"
+          },
+          "SQLServer": {
+            "type": "NVARCHAR(32)"
+          },
+          "PostgreSQL": {
+            "type": "VARCHAR(32)"
+          }
+        }
+      },
+      {
+        "name": "标识号",
+        "code": "IdOrKey",
+        "apply": {
+          "JAVA": {
+            "type": "String"
+          },
+          "ORACLE": {
+            "type": "VARCHAR2(32)"
+          },
+          "MYSQL": {
+            "type": "VARCHAR(32)"
+          },
+          "SQLServer": {
+            "type": "VARCHAR(32)"
+          },
+          "PostgreSQL": {
+            "type": "VARCHAR(32)"
+          }
+        }
+      },
+      {
+        "name": "标识号-长",
+        "code": "LongKey",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(64)"
+          },
+          "ORACLE": {
+            "type": "VARCHAR2(64)"
+          },
+          "JAVA": {
+            "type": "String"
+          },
+          "SQLServer": {
+            "type": "VARCHAR(64)"
+          },
+          "PostgreSQL": {
+            "type": "VARCHAR(64)"
+          }
+        }
+      },
+      {
+        "name": "名称",
+        "code": "Name",
+        "apply": {
+          "JAVA": {
+            "type": "String"
+          },
+          "MYSQL": {
+            "type": "VARCHAR(128)"
+          },
+          "ORACLE": {
+            "type": "NVARCHAR2(128)"
+          },
+          "SQLServer": {
+            "type": "NVARCHAR(128)"
+          },
+          "PostgreSQL": {
+            "type": "VARCHAR(128)"
+          }
+        }
+      },
+      {
+        "name": "备注说明",
+        "code": "Intro",
+        "apply": {
+          "JAVA": {
+            "type": "String"
+          },
+          "MYSQL": {
+            "type": "VARCHAR(512)"
+          },
+          "ORACLE": {
+            "type": "NVARCHAR2(512)"
+          },
+          "SQLServer": {
+            "type": "NVARCHAR(512)"
+          },
+          "PostgreSQL": {
+            "type": "VARCHAR(512)"
+          }
+        }
+      },
+      {
+        "name": "字串-短",
+        "code": "ShortString",
+        "apply": {
+          "JAVA": {
+            "type": "String"
+          },
+          "MYSQL": {
+            "type": "VARCHAR(128)"
+          },
+          "ORACLE": {
+            "type": "NVARCHAR2(128)"
+          },
+          "SQLServer": {
+            "type": "NVARCHAR(128)"
+          },
+          "PostgreSQL": {
+            "type": "VARCHAR(128)"
+          }
+        }
+      },
+      {
+        "name": "字串-中",
+        "code": "MiddleString",
+        "apply": {
+          "JAVA": {
+            "type": "String"
+          },
+          "MYSQL": {
+            "type": "VARCHAR(1024)"
+          },
+          "ORACLE": {
+            "type": "NVARCHAR2(1024)"
+          },
+          "SQLServer": {
+            "type": "NVARCHAR(1024)"
+          },
+          "PostgreSQL": {
+            "type": "VARCHAR(1024)"
+          }
+        }
+      },
+      {
+        "name": "字串-长",
+        "code": "LongString",
+        "apply": {
+          "JAVA": {
+            "type": "String"
+          },
+          "ORACLE": {
+            "type": "NVARCHAR2(3072)"
+          },
+          "MYSQL": {
+            "type": "VARCHAR(3072)"
+          },
+          "SQLServer": {
+            "type": "NVARCHAR(3072)"
+          },
+          "PostgreSQL": {
+            "type": "VARCHAR(3072)"
+          }
+        }
+      },
+      {
+        "name": "大文本",
+        "code": "LongText",
+        "apply": {
+          "JAVA": {
+            "type": "String"
+          },
+          "MYSQL": {
+            "type": "TEXT"
+          },
+          "ORACLE": {
+            "type": "CLOB"
+          },
+          "SQLServer": {
+            "type": "NTEXT"
+          },
+          "PostgreSQL": {
+            "type": "TEXT"
+          }
+        }
+      },
+      {
+        "name": "小数",
+        "code": "Double",
+        "apply": {
+          "JAVA": {
+            "type": "Double"
+          },
+          "MYSQL": {
+            "type": "DECIMAL(32,10)"
+          },
+          "ORACLE": {
+            "type": "NUMBER(32,10)"
+          },
+          "SQLServer": {
+            "type": "DECIMAL(32,10)"
+          },
+          "PostgreSQL": {
+            "type": "DECIMAL(32,10)"
+          }
+        }
+      },
+      {
+        "name": "比例",
+        "code": "Ratio",
+        "apply": {
+          "MYSQL": {
+            "type": "DECIMAL(4,2)"
+          },
+          "JAVA": {
+            "type": "Double"
+          },
+          "ORACLE": {
+            "type": "NUMBER(4,2)"
+          },
+          "SQLServer": {
+            "type": "DECIMAL(4,2)"
+          },
+          "PostgreSQL": {
+            "type": "DECIMAL(4,2)"
+          }
+        }
+      },
+      {
+        "name": "整数",
+        "code": "Integer",
+        "apply": {
+          "JAVA": {
+            "type": "Integer"
+          },
+          "MYSQL": {
+            "type": "INT"
+          },
+          "ORACLE": {
+            "type": "INT"
+          },
+          "SQLServer": {
+            "type": "INT"
+          },
+          "PostgreSQL": {
+            "type": "INT"
+          }
+        }
+      },
+      {
+        "name": "大整数",
+        "code": "BigInt",
+        "apply": {
+          "MYSQL": {
+            "type": "BIGINT"
+          },
+          "JAVA": {
+            "type": "Long"
+          },
+          "ORACLE": {
+            "type": "NUMBER"
+          },
+          "SQLServer": {
+            "type": "BIGINT"
+          },
+          "PostgreSQL": {
+            "type": "BIGINT"
+          }
+        }
+      },
+      {
+        "name": "金额",
+        "code": "Money",
+        "apply": {
+          "JAVA": {
+            "type": "Double"
+          },
+          "MYSQL": {
+            "type": "DECIMAL(32,8)"
+          },
+          "ORACLE": {
+            "type": "NUMBER(32,8)"
+          },
+          "SQLServer": {
+            "type": "DECIMAL(32,8)"
+          },
+          "PostgreSQL": {
+            "type": "DECIMAL(32,8)"
+          }
+        }
+      },
+      {
+        "name": "是否",
+        "code": "YesNo",
+        "apply": {
+          "JAVA": {
+            "type": "String"
+          },
+          "MYSQL": {
+            "type": "VARCHAR(1)"
+          },
+          "ORACLE": {
+            "type": "VARCHAR2(1)"
+          },
+          "SQLServer": {
+            "type": "VARCHAR(1)"
+          },
+          "PostgreSQL": {
+            "type": "VARCHAR(1)"
+          }
+        }
+      },
+      {
+        "name": "数据字典",
+        "code": "Dict",
+        "apply": {
+          "JAVA": {
+            "type": "String"
+          },
+          "MYSQL": {
+            "type": "VARCHAR(32)"
+          },
+          "ORACLE": {
+            "type": "VARCHAR2(32)"
+          },
+          "SQLServer": {
+            "type": "VARCHAR(32)"
+          },
+          "PostgreSQL": {
+            "type": "VARCHAR(32)"
+          }
+        }
+      },
+      {
+        "name": "日期",
+        "code": "Date",
+        "apply": {
+          "JAVA": {
+            "type": "Date"
+          },
+          "MYSQL": {
+            "type": "DATE"
+          },
+          "ORACLE": {
+            "type": "DATE"
+          },
+          "SQLServer": {
+            "type": "DATE"
+          },
+          "PostgreSQL": {
+            "type": "DATE"
+          }
+        }
+      },
+      {
+        "name": "日期时间",
+        "code": "DateTime",
+        "apply": {
+          "JAVA": {
+            "type": "Date"
+          },
+          "MYSQL": {
+            "type": "DATETIME"
+          },
+          "ORACLE": {
+            "type": "DATE"
+          },
+          "SQLServer": {
+            "type": "DATE"
+          },
+          "PostgreSQL": {
+            "type": "DATE"
+          }
+        }
+      },
+      {
+        "name": "单字符",
+        "code": "Char",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(1)"
+          },
+          "ORACLE": {
+            "type": "CHAR(1)"
+          },
+          "JAVA": {
+            "type": "String"
+          },
+          "SQLServer": {
+            "type": "CHAR(1)"
+          },
+          "PostgreSQL": {
+            "type": "CHAR(1)"
+          }
+        }
+      },
+      {
+        "name": "BIGINT_19",
+        "code": "BIGINT_19",
+        "apply": {
+          "MYSQL": {
+            "type": "BIGINT(19)"
+          }
+        }
+      },
+      {
+        "name": "BIT_1",
+        "code": "BIT_1",
+        "apply": {
+          "MYSQL": {
+            "type": "BIT(1)"
+          }
+        }
+      },
+      {
+        "name": "CHAR_32",
+        "code": "CHAR_32",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(32)"
+          }
+        }
+      },
+      {
+        "name": "DATETIME",
+        "code": "DATETIME",
+        "apply": {
+          "MYSQL": {
+            "type": "DATETIME"
+          }
+        }
+      },
+      {
+        "name": "DECIMAL_18_4",
+        "code": "DECIMAL_18_4",
+        "apply": {
+          "MYSQL": {
+            "type": "DECIMAL(18,4)"
+          }
+        }
+      },
+      {
+        "name": "INT_10",
+        "code": "INT_10",
+        "apply": {
+          "MYSQL": {
+            "type": "INT(10)"
+          }
+        }
+      },
+      {
+        "name": "TINYINT_3",
+        "code": "TINYINT_3",
+        "apply": {
+          "MYSQL": {
+            "type": "TINYINT(3)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_100",
+        "code": "VARCHAR_100",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(100)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_20",
+        "code": "VARCHAR_20",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(20)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_200",
+        "code": "VARCHAR_200",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(200)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_2000",
+        "code": "VARCHAR_2000",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(2000)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_255",
+        "code": "VARCHAR_255",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(255)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_32",
+        "code": "VARCHAR_32",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(32)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_4000",
+        "code": "VARCHAR_4000",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(4000)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_50",
+        "code": "VARCHAR_50",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(50)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_500",
+        "code": "VARCHAR_500",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(500)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_5000",
+        "code": "VARCHAR_5000",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(5000)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_64",
+        "code": "VARCHAR_64",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(64)"
+          }
+        }
+      },
+      {
+        "name": "CHAR_1",
+        "code": "CHAR_1",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(1)"
+          }
+        }
+      },
+      {
+        "name": "CHAR_20",
+        "code": "CHAR_20",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(20)"
+          }
+        }
+      },
+      {
+        "name": "CHAR_255",
+        "code": "CHAR_255",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(255)"
+          }
+        }
+      },
+      {
+        "name": "CHAR_30",
+        "code": "CHAR_30",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(30)"
+          }
+        }
+      },
+      {
+        "name": "CHAR_50",
+        "code": "CHAR_50",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(50)"
+          }
+        }
+      },
+      {
+        "name": "LONGTEXT",
+        "code": "LONGTEXT",
+        "apply": {
+          "MYSQL": {
+            "type": "LONGTEXT"
+          }
+        }
+      },
+      {
+        "name": "TEXT",
+        "code": "TEXT",
+        "apply": {
+          "MYSQL": {
+            "type": "TEXT"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_1000",
+        "code": "VARCHAR_1000",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(1000)"
+          }
+        }
+      },
+      {
+        "name": "DECIMAL_10",
+        "code": "DECIMAL_10",
+        "apply": {
+          "MYSQL": {
+            "type": "DECIMAL(10)"
+          }
+        }
+      },
+      {
+        "name": "DECIMAL_4_2",
+        "code": "DECIMAL_4_2",
+        "apply": {
+          "MYSQL": {
+            "type": "DECIMAL(4,2)"
+          }
+        }
+      },
+      {
+        "name": "CHAR_64",
+        "code": "CHAR_64",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(64)"
+          }
+        }
+      },
+      {
+        "name": "DATE",
+        "code": "DATE",
+        "apply": {
+          "MYSQL": {
+            "type": "DATE"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_0",
+        "code": "VARCHAR_0",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(0)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR_15",
+        "code": "VARCHAR_15",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(15)"
+          }
+        }
+      },
+      {
+        "name": "CHAR_13",
+        "code": "CHAR_13",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(13)"
+          }
+        }
+      },
+      {
+        "name": "CHAR_15",
+        "code": "CHAR_15",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(15)"
+          }
+        }
+      }
+    ],
+    "database": [
+      {
+        "code": "MYSQL",
+        "template": "DROP TABLE {{=it.entity.title}};\n$blankline\nCREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.pk ? 'NOT NULL' : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,';')}}' {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) COMMENT = '{{=it.func.join(it.entity.chnname,it.entity.remark,';') }}'",
+        "fileShow": true,
+        "defaultDatabase": true,
+        "createTableTemplate": "CREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} {{= field.autoIncrement ? 'AUTO_INCREMENT' : '' }} {{= field.defaultValue ? it.func.join('DEFAULT',field.defaultValue,' ') : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,' ')}}' {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) COMMENT = '{{=it.func.join(it.entity.chnname,it.entity.remark,' ') }}';{{=it.separator}}\n$blankline\n",
+        "deleteTableTemplate": "DROP TABLE {{=it.entity.title}};{{=it.separator}}/*SkipError*/",
+        "rebuildTableTemplate": "create table PDMAN_UP_{{=it.oldEntity.title}}\nas select * from {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\ndrop table {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\nCREATE TABLE {{=it.newEntity.title}}(\n{{ pkList = [] ; }}\n{{~it.newEntity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,';')}}' {{= index < it.newEntity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) COMMENT = '{{=it.func.join(it.newEntity.chnname,it.newEntity.remark,';') }}';{{=it.separator}}\n$blankline\n\n{{ sameCols = it.func.intersect(it.newEntity.fields,it.oldEntity.fields) ;}}\ninsert into {{=it.newEntity.title}}(\n{{~sameCols:field:index}}\n    {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}\n) \nselect \n{{~sameCols:field:index}}\n    {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}\nfrom PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\ndrop table PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n{{~it.newEntity.indexs:index}}\nALTER TABLE {{=it.newEntity.title}} ADD {{? index.isUnique}}UNIQUE{{??}}INDEX{{?}} {{=index.name}}({{=it.func.join(...index.fields,',')}});{{=it.separator}}\n{{~}}",
+        "createFieldTemplate": "ALTER TABLE {{=it.entity.title}} ADD COLUMN {{=it.field.name}} {{=it.field.type}} {{? it.field.notNull}}NOT NULL{{?}} {{? it.field.defaultValue}}DEFAULT {{? null==it.field.defaultValue}}NULL{{??}}'{{=it.field.defaultValue}}'{{?}}{{?}} {{? it.field.autoIncrement}}AUTO_INCREMENT{{?}} {{? it.field.pk}}PRIMARY KEY{{?}} {{? it.field.chnname}}COMMENT '{{=it.field.chnname}}'{{?}} {{? it.field.addAfter}}AFTER {{=it.field.addAfter}}{{?}};{{=it.separator}}",
+        "updateFieldTemplate": "ALTER TABLE {{=it.entity.title}} MODIFY COLUMN {{=it.field.name}} {{=it.field.type}} {{? it.field.notNull}}NOT NULL{{?}} {{? it.field.defaultValue}}DEFAULT {{? null==it.field.defaultValue}}NULL{{??}}'{{=it.field.defaultValue}}'{{?}}{{?}} {{? it.field.autoIncrement}}AUTO_INCREMENT{{?}} {{? it.field.chnname}}COMMENT '{{=it.field.chnname}}'{{?}};{{=it.separator}}",
+        "deleteFieldTemplate": "ALTER TABLE {{=it.entity.title}} DROP {{=it.field.name}};{{=it.separator}}",
+        "deleteIndexTemplate": "ALTER TABLE {{=it.entity.title}} DROP INDEX {{=it.index.name}};{{=it.separator}}",
+        "createIndexTemplate": "ALTER TABLE {{=it.entity.title}} ADD {{? it.index.isUnique}}UNIQUE{{??}}INDEX{{?}} {{=it.index.name}}({{=it.func.join(...it.index.fields,',')}});{{=it.separator}}",
+        "updateTableComment": "ALTER TABLE {{=it.entity.title}} COMMENT '{{=it.entity.chnname}}';{{=it.separator}}"
+      },
+      {
+        "code": "ORACLE",
+        "template": "DROP TABLE {{=it.entity.title}};{{=it.separator}}\n$blankline\nCREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}}  {{= field.pk ? 'NOT NULL' : '' }} {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n);{{=it.separator}}\n$blankline\nCOMMENT ON TABLE {{=it.entity.title}} IS '{{=it.func.join(it.entity.chnname,it.entity.remark,';') }}';{{=it.separator}}\n{{~it.entity.fields:field:index}}\nCOMMENT ON COLUMN {{=it.entity.title}}.{{=field.name}} IS '{{=it.func.join(field.chnname,field.remark,';')}}';{{=it.separator}}\n{{~}}",
+        "createTableTemplate": "CREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}}{{? field.defaultValue}} DEFAULT {{=field.defaultValue}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n);{{=it.separator}}\n$blankline\n{{? it.entity.chnname || it.entity.remark}}COMMENT ON TABLE {{=it.entity.title}} IS {{? it.entity.remark}}'{{=it.entity.remark}}'{{??}}'{{=it.entity.chnname}}'{{?}};{{=it.separator}}{{?}}\n{{~it.entity.fields:field:index}}\n{{? field.chnname || field.remark}}COMMENT ON COLUMN {{=it.entity.title}}.{{=field.name}} IS {{? field.remark}}'{{=field.remark}}'{{??}}'{{=field.chnname}}'{{?}};{{=it.separator}}{{?}}\n{{~}}",
+        "deleteTableTemplate": "DROP TABLE {{=it.entity.title}};{{=it.separator}}/*SkipError*/\r\n$blankline",
+        "rebuildTableTemplate": "CREATE TABLE PDMAN_UP_{{=it.oldEntity.title}}\nAS SELECT * FROM {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\nDROP TABLE {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\nCREATE TABLE {{=it.newEntity.title}}(\n{{ pkList = [] ; }}{{~it.newEntity.fields:field:index}}{{? field.pk }}{{ pkList.push(field.name) }}{{?}}    {{=field.name}} {{=field.type}}{{? field.defaultValue}} DEFAULT {{=field.defaultValue}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= index < it.newEntity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}{{? pkList.length >0 }}    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}}){{?}}\n);{{=it.separator}}\n$blankline\n{{? it.newEntity.chnname || it.newEntity.remark}}COMMENT ON TABLE {{=it.newEntity.title}} IS {{? it.newEntity.remark}}'{{=it.entity.remark}}'{{??}}'{{=it.newEntity.chnname}}'{{?}};{{?}}{{=it.separator}}\n{{~it.newEntity.fields:field:index}}\n{{? field.chnname || field.remark}}COMMENT ON COLUMN {{=it.newEntity.title}}.{{=field.name}} IS {{? field.remark}}'{{=field.remark}}'{{??}}'{{=field.chnname}}'{{?}};{{?}}{{=it.separator}}\n{{~}}\n{{ sameCols = it.func.intersect(it.newEntity.fields,it.oldEntity.fields) ;}}\n$blankline\nINSERT INTO {{=it.newEntity.title}}(\n{{~sameCols:field:index}}   {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}) \nSELECT\n{{~sameCols:field:index}}   {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}FROM PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n\nDROP TABLE PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n{{~it.newEntity.indexs:index}}\nCREATE{{? index.isUnique}} UNIQUE{{?}} INDEX {{=index.name}} ON {{=it.newEntity.title}}({{=it.func.join(index.fields,',')}});{{=it.separator}}\n{{~}}",
+        "createFieldTemplate": "ALTER TABLE {{=it.entity.title}} ADD({{=it.field.name}} {{=it.field.type}}{{? it.field.defaultValue}} DEFAULT {{=it.field.defaultValue}}{{?}}{{? it.field.notNull}} NOT NULL{{?}});{{=it.separator}}\r\n{{? it.field.chnname || it.field.remark}}COMMENT ON COLUMN {{=it.entity.title}}.{{=it.field.name}} IS {{? it.field.remark}}'{{=it.field.remark}}'{{??}}'{{=it.field.chnname}}'{{?}};{{=it.separator}}{{?}}\r\n$blankline",
+        "updateFieldTemplate": "ALTER TABLE {{=it.entity.title}} MODIFY({{=it.field.name}} {{=it.field.type}}{{? it.field.defaultValue}} DEFAULT {{=it.field.defaultValue}}{{?}}{{? it.field.notNull}} NOT NULL{{?}});{{=it.separator}}\r\n{{? it.field.chnname || it.field.remark}}COMMENT ON COLUMN {{=it.entity.title}}.{{=it.field.name}} IS {{? it.field.remark}}'{{=it.field.remark}}'{{??}}'{{=it.field.chnname}}'{{?}};{{=it.separator}}{{=it.separator}}{{?}}\r\n$blankline",
+        "deleteFieldTemplate": "ALTER TABLE {{=it.entity.title}} DROP({{=it.field.name}});{{=it.separator}}\r\n$blankline",
+        "deleteIndexTemplate": "DROP INDEX {{=it.entity.title}}.{{=it.index.name}};{{=it.separator}}\r\n$blankline",
+        "createIndexTemplate": "CREATE{{? it.index.isUnique}} UNIQUE{{?}} INDEX {{=it.index.name}} ON {{=it.entity.title}}({{=it.func.join(it.index.fields,',')}});{{=it.separator}}\r\n$blankline",
+        "updateTableComment": "{{? it.entity.chnname || it.entity.remark}}COMMENT ON TABLE {{=it.entity.title}} IS {{? it.entity.remark}}'{{=it.entity.remark}}'{{??}}'{{=it.entity.chnname}}'{{?}};{{=it.separator}}{{?}}\r\n$blankline"
+      },
+      {
+        "code": "SQLServer",
+        "createTableTemplate": "CREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} {{= field.autoIncrement ? 'IDENTITY(1,1)' : '' }} {{= field.defaultValue ? it.func.join('DEFAULT',field.defaultValue,' ') : '' }}  {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    CONSTRAINT PK_{{=it.entity.title}} PRIMARY KEY CLUSTERED ({{~pkList:pkName:i}}{{= pkName }} ASC {{= i<pkList.length-1 ? ',' : '' }}{{~}}) ON [PRIMARY] \n{{?}}\n) ;{{=it.separator}}\n\n$blankline\nEXECUTE sp_addextendedproperty N'MS_Description', '{{= it.entity.chnname || it.entity.remark}}', N'user', N'dbo', N'table', N'{{=it.entity.title}}', NULL, NULL;{{=it.separator}}\n{{~it.entity.fields:field:index}}\n{{? field.chnname || field.remark}}EXECUTE sp_addextendedproperty N'MS_Description', {{? field.remark}}'{{=field.remark}}'{{??}}'{{=field.chnname}}'{{?}}, N'user', N'dbo', N'table', N'{{=it.entity.title}}', N'column', N'{{=field.name}}';{{=it.separator}}{{?}}\n{{~}}\n",
+        "deleteTableTemplate": "",
+        "rebuildTableTemplate": "",
+        "createFieldTemplate": "",
+        "updateFieldTemplate": "",
+        "deleteFieldTemplate": "",
+        "deleteIndexTemplate": "",
+        "createIndexTemplate": "",
+        "updateTableComment": ""
+      },
+      {
+        "code": "PostgreSQL",
+        "template": "DROP TABLE {{=it.entity.title}};\n$blankline\nCREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.pk ? 'NOT NULL' : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,';')}}' {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) COMMENT = '{{=it.func.join(it.entity.chnname,it.entity.remark,';') }}'",
+        "createTableTemplate": "CREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}}{{? field.defaultValue}} DEFAULT {{=field.defaultValue}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n);{{=it.separator}}\n$blankline\n{{? it.entity.chnname || it.entity.remark}}COMMENT ON TABLE {{=it.entity.title}} IS {{? it.entity.remark}}'{{=it.entity.remark}}'{{??}}'{{=it.entity.chnname}}'{{?}};{{=it.separator}}{{?}}\n{{~it.entity.fields:field:index}}\n{{? field.chnname || field.remark}}COMMENT ON COLUMN {{=it.entity.title}}.{{=field.name}} IS {{? field.remark}}'{{=field.remark}}'{{??}}'{{=field.chnname}}'{{?}};{{=it.separator}}{{?}}\n{{~}}",
+        "deleteTableTemplate": "DROP TABLE {{=it.entity.title}};{{=it.separator}}/*SkipError*/",
+        "rebuildTableTemplate": "create table PDMAN_UP_{{=it.oldEntity.title}}\nas select * from {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\ndrop table {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\nCREATE TABLE {{=it.newEntity.title}}(\n{{ pkList = [] ; }}\n{{~it.newEntity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,';')}}' {{= index < it.newEntity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) COMMENT = '{{=it.func.join(it.newEntity.chnname,it.newEntity.remark,';') }}';{{=it.separator}}\n$blankline\n\n{{ sameCols = it.func.intersect(it.newEntity.fields,it.oldEntity.fields) ;}}\ninsert into {{=it.newEntity.title}}(\n{{~sameCols:field:index}}\n    {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}\n) \nselect \n{{~sameCols:field:index}}\n    {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}\nfrom PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\ndrop table PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}",
+        "createFieldTemplate": "ALTER TABLE {{=it.entity.title}} ADD COLUMN {{=it.field.name}} {{=it.field.type}} {{? it.field.notNull}}NOT NULL{{?}} {{? it.field.defaultValue}}DEFAULT {{? null==it.field.defaultValue}}NULL{{??}}'{{=it.field.defaultValue}}'{{?}}{{?}} {{? it.field.autoIncrement}}AUTO_INCREMENT{{?}} {{? it.field.pk}}PRIMARY KEY{{?}} {{? it.field.chnname}}COMMENT '{{=it.field.chnname}}'{{?}} {{? it.field.addAfter}}AFTER {{=it.field.addAfter}}{{?}};{{=it.separator}}",
+        "updateFieldTemplate": "ALTER TABLE {{=it.entity.title}} MODIFY COLUMN {{=it.field.name}} {{=it.field.type}} {{? it.field.notNull}}NOT NULL{{?}} {{? it.field.defaultValue}}DEFAULT {{? null==it.field.defaultValue}}NULL{{??}}'{{=it.field.defaultValue}}'{{?}}{{?}} {{? it.field.autoIncrement}}AUTO_INCREMENT{{?}} {{? it.field.chnname}}COMMENT '{{=it.field.chnname}}'{{?}};{{=it.separator}}",
+        "deleteFieldTemplate": "ALTER TABLE {{=it.entity.title}} DROP {{=it.field.name}};{{=it.separator}}",
+        "deleteIndexTemplate": "ALTER TABLE {{=it.entity.title}} DROP INDEX {{=it.index.name}};{{=it.separator}}",
+        "createIndexTemplate": "ALTER TABLE {{=it.entity.title}} ADD {{? it.index.isUnique}}UNIQUE{{??}}INDEX{{?}} {{=it.index.name}}({{=it.func.join(...it.index.fields,',')}});{{=it.separator}}",
+        "updateTableComment": "ALTER TABLE {{=it.entity.title}} COMMENT '{{=it.entity.chnname}}';{{=it.separator}}"
+      },
+      {
+        "code": "JAVA",
+        "template": "package group.rober.pdman.{{=it.module.name}}.entity;\n$blankline\nimport javax.persistence.*;\nimport java.io.Serializable;\nimport java.util.Date;\n$blankline\n$blankline\n\n/** {{=it.entity.chnname}} */\n@Table(name=\"{{=it.entity.title}}\")\npublic class {{=it.func.camel(it.entity.title,true) }} implements Serializable,Cloneable{\n{{~it.entity.fields:field:index}}\n    /** {{=it.func.join(field.chnname,field.remark,';')}} */\n    {{? field.pk }}\n    @Id\n    @GeneratedValue\n    {{?}}\n    private {{=field.type}} {{=it.func.camel(field.name,false)}} ;\n{{~}}\n$blankline\n{{~it.entity.fields:field:index}}\n    /** {{=it.func.join(field.chnname,field.remark,';')}} */\n    public {{=field.type}} get{{=it.func.camel(field.name,true)}}(){\n        return this.{{=it.func.camel(field.name,false)}};\n    }\n    /** {{=it.func.join(field.chnname,field.remark,';')}} */\n    public void set{{=it.func.camel(field.name,true)}}({{=field.type}} {{= it.func.camel(field.name,false) }}){\n        this.{{=it.func.camel(field.name,false)}} = {{= it.func.camel(field.name,false) }};\n    }\n{{~}}\n}",
+        "createTableTemplate": "package group.rober.pdman.{{=it.module.name}}.entity;\n$blankline\nimport javax.persistence.*;\nimport java.io.Serializable;\nimport java.util.Date;\n$blankline\n$blankline\n@Table(name=\"{{=it.entity.title}}\")\npublic class {{=it.func.camel(it.entity.title,true) }} implements Serializable,Cloneable{\n{{~it.entity.fields:field:index}}\n    /** {{=it.func.join(field.chnname,field.remark,';')}} */\n    {{? field.pk }}\n    @Id\n    @GeneratedValue\n    {{?}}\n    private {{=field.type}} {{=it.func.camel(field.name,false)}} ;\n{{~}}\n$blankline\n{{~it.entity.fields:field:index}}\n    /** {{=it.func.join(field.chnname,field.remark,';')}} */\n    public {{=field.type}} get{{=it.func.camel(field.name,true)}}(){\n        return this.{{=it.func.camel(field.name,false)}};\n    }\n    /** {{=it.func.join(field.chnname,field.remark,';')}} */\n    public void set{{=it.func.camel(field.name,true)}}({{=field.type}} {{= it.func.camel(field.name,false) }}){\n        this.{{=it.func.camel(field.name,false)}} = {{= it.func.camel(field.name,false) }};\n    }\n{{~}}\n}",
+        "deleteTableTemplate": "",
+        "rebuildTableTemplate": "",
+        "createFieldTemplate": "",
+        "updateFieldTemplate": "",
+        "deleteFieldTemplate": "",
+        "deleteIndexTemplate": "",
+        "createIndexTemplate": "",
+        "updateTableComment": ""
+      }
+    ]
+  },
+  "profile": {
+    "dbs": [
+      {
+        "name": "gulimail_oms",
+        "defaultDB": false,
+        "properties": {
+          "driver_class_name": "com.mysql.jdbc.Driver",
+          "url": "jdbc:mysql://192.168.52.128:3306/gulimail_oms?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC",
+          "password": "root",
+          "username": "root"
+        }
+      },
+      {
+        "name": "gulimail_pms",
+        "defaultDB": false,
+        "properties": {
+          "driver_class_name": "com.mysql.jdbc.Driver",
+          "url": "jdbc:mysql://192.168.52.128:3306/gulimail_pms?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC",
+          "password": "root",
+          "username": "root"
+        }
+      },
+      {
+        "name": "gulimail_sms",
+        "defaultDB": false,
+        "properties": {
+          "driver_class_name": "com.mysql.jdbc.Driver",
+          "url": "jdbc:mysql://192.168.52.128:3306/gulimail_sms?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC",
+          "password": "root",
+          "username": "root"
+        }
+      },
+      {
+        "name": "gulimail_ums",
+        "defaultDB": false,
+        "properties": {
+          "driver_class_name": "com.mysql.jdbc.Driver",
+          "url": "jdbc:mysql://192.168.52.128:3306/gulimail_ums?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC",
+          "password": "root",
+          "username": "root"
+        }
+      },
+      {
+        "name": "gulimail_wms",
+        "defaultDB": true,
+        "properties": {
+          "driver_class_name": "com.mysql.jdbc.Driver",
+          "url": "jdbc:mysql://192.168.52.128:3306/gulimail_wms?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC",
+          "password": "root",
+          "username": "root"
+        }
+      }
+    ]
+  }
+}
