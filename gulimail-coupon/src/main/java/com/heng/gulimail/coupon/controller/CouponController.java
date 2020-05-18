@@ -30,6 +30,13 @@ public class CouponController {
     @Autowired
     private CouponService couponService;
 
+    @RequestMapping("testOpenFeign")
+    public R testOpenFeign(){
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("我是一张测试优惠券");
+        return R.ok().put("coupun",Arrays.asList(couponEntity));
+    }
+
     /**
      * 列表
      */
